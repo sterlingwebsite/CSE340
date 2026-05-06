@@ -47,8 +47,8 @@ app.get("/organizations", async (req, res) => {
 app.get("/projects", async (req, res) => {
   const projects = await getAllProjects();
 
-  console.log("--- Verifying Projects Data ---");
-  console.table(projects);
+  // console.log("--- Verifying Projects Data ---");
+  // console.table(projects);
 
   const title = "Service Projects";
   res.render("projects", { title, projects });
