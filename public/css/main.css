@@ -108,6 +108,7 @@ main ul {
 main li {
     display: flex;
     align-items: center;
+    justify-content: center;
     background: var(--bg-light);
     padding: 1rem;
     border-radius: 8px;

@@ -186,9 +186,57 @@ SELECT
 FROM
 	SERVICE_PROJECTS;
 
-SELECT table_name 
-FROM information_schema.tables 
-WHERE table_schema = 'public';
+CREATE TABLE IF NOT EXISTS PUBLIC.CATEGORIES (
+	CATEGORY_ID SERIAL PRIMARY KEY,
+	CATEGORY_NAME VARCHAR(50) NOT NULL UNIQUE
+);
 
--- DROP TABLE IF EXISTS public.organizations CASCADE;
--- DROP TABLE IF EXISTS public.service_projects CASCADE;
+CREATE TABLE IF NOT EXISTS PUBLIC.PROJECT_CATEGORIES (
+    PROJECT_ID INT NOT NULL,
+    CATEGORY_ID INT NOT NULL,
+    PRIMARY KEY (PROJECT_ID, CATEGORY_ID),
+    CONSTRAINT FK_PROJECT FOREIGN KEY (PROJECT_ID) 
+        REFERENCES SERVICE_PROJECTS (PROJECT_ID) ON DELETE CASCADE,
+    CONSTRAINT FK_CATEGORY FOREIGN KEY (CATEGORY_ID) 
+        REFERENCES CATEGORIES (CATEGORY_ID) ON DELETE CASCADE
+);
+
+INSERT INTO PUBLIC.CATEGORIES (CATEGORY_NAME)
+VALUES 
+    ('Community Support'),
+    ('Education'),
+    ('Animal Care'),
+    ('Environment'),
+    ('Food Assistance');
+
+SELECT
+	*
+FROM
+	CATEGORIES;
+
+INSERT INTO
+	PUBLIC.PROJECT_CATEGORIES (PROJECT_ID, CATEGORY_ID)
+VALUES
+	(1, 5), -- Food Drive Sorting → Food Assistance
+	(2, 4), -- Community Garden Prep → Environment
+	(3, 1), -- Clothing Donation Event → Community Support
+	(4, 1), -- Senior Center Visit → Community Support
+	(5, 4); -- Park Cleanup → Environment
+
+INSERT INTO
+	PUBLIC.PROJECT_CATEGORIES (PROJECT_ID, CATEGORY_ID)
+VALUES
+	(6, 2), -- Youth Mentoring → Education
+	(7, 1), -- Tech Support for Seniors → Community Support
+	(8, 2), -- Book Drive → Education
+	(9, 2), -- Art Class Assistant → Education
+	(10, 1); -- After-school Snack Prep → Community Support
+
+INSERT INTO
+	PUBLIC.PROJECT_CATEGORIES (PROJECT_ID, CATEGORY_ID)
+VALUES
+	(11, 3), -- Animal Shelter Feeding → Animal Care
+	(12, 3), -- Cat Room Socialization → Animal Care
+	(13, 3), -- Shelter Painting → Animal Care
+	(14, 3), -- Adoption Event Help → Animal Care
+	(15, 3); -- Kennel Cleaning → Animal Care
