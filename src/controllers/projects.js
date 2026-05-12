@@ -1,13 +1,23 @@
-import { getAllProjects } from "../models/projects.js";
+import { getUpcomingProjects, getProjectDetails } from "../models/projects.js";
+
+const NUMBER_OF_UPCOMING_PROJECTS = 5;
 
 const showProjectsPage = async (req, res) => {
-  const projects = await getAllProjects();
+  const projects = await getUpcomingProjects(NUMBER_OF_UPCOMING_PROJECTS);
 
   // console.log("--- Verifying Projects Data ---");
   // console.table(projects);
 
-  const title = "Service Projects";
+  const title = "Upcoming Service Projects";
   res.render("projects", { title, projects });
 };
 
-export { showProjectsPage };
+const showProjectDetailsPage = async (req, res) => {
+  const projectId = req.params.id;
+
+  const project = await getProjectDetails(projectId);
+
+  res.render("project", { title: project.title, project });
+};
+
+export { showProjectsPage, showProjectDetailsPage };
