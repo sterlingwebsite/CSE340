@@ -137,6 +137,44 @@ main li strong {
     margin-right: 10px;
 }
 
+/* Flash message styles */
+.alert {
+    padding: 14px 24px;
+    margin: 15px auto 25px auto;
+    max-width: 800px;
+    width: 90%;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.alert.success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert.info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+}
+
 @media (max-width: 600px) {
     main {
         margin: 1rem;
