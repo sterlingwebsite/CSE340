@@ -3,6 +3,7 @@ import {
   getCategoryById,
   getProjectsByCategoryId,
   getCategoriesByProjectId,
+  updateCategoryAssignments,
 } from "../models/categories.js";
 import { getProjectDetails } from "../models/projects.js";
 
