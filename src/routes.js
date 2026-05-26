@@ -36,6 +36,8 @@ import {
   showLoginForm,
   processLoginForm,
   processLogout,
+  requireLogin,
+  showDashboard,
 } from "./controllers/users.js";
 import { testErrorPage } from "./controllers/errors.js";
 
@@ -46,10 +48,13 @@ router.get("/organizations", showOrganizationsPage);
 router.get("/projects", showProjectsPage);
 router.get("/categories", showCategoriesPage);
 
+// Protected dashboard route
+router.get("/dashboard", requireLogin, showDashboard);
+
 // User login routes
-router.get('/login', showLoginForm);
-router.post('/login', processLoginForm);
-router.get('/logout', processLogout);
+router.get("/login", showLoginForm);
+router.post("/login", processLoginForm);
+router.get("/logout", processLogout);
 
 // User registration routes
 router.get("/register", showUserRegistrationForm);
