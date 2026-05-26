@@ -60,35 +60,35 @@ VALUES
 		'Food Drive Sorting',
 		'Sort and package donated food items.',
 		'Rexburg Food Bank',
-		'2024-06-10'
+		'2026-06-10'
 	),
 	(
 		1,
 		'Community Garden Prep',
 		'Prepare soil and plant early crops.',
 		'Community Garden Plot A',
-		'2024-06-15'
+		'2026-06-15'
 	),
 	(
 		1,
 		'Clothing Donation Event',
 		'Organize and distribute donated clothing.',
 		'Civic Center',
-		'2024-06-20'
+		'2026-06-20'
 	),
 	(
 		1,
 		'Senior Center Visit',
 		'Visit seniors and help with activities.',
 		'Rexburg Senior Center',
-		'2024-06-25'
+		'2026-06-25'
 	),
 	(
 		1,
 		'Park Cleanup',
 		'Clean up trash and debris at the park.',
 		'Porter Park',
-		'2024-06-30'
+		'2026-06-30'
 	);
 
 INSERT INTO
@@ -105,35 +105,35 @@ VALUES
 		'Youth Mentoring',
 		'After-school tutoring for middle schoolers.',
 		'Public Library',
-		'2024-07-05'
+		'2026-07-05'
 	),
 	(
 		2,
 		'Tech Support for Seniors',
 		'Help seniors set up tablets and email.',
 		'Community Center',
-		'2024-07-07'
+		'2026-07-07'
 	),
 	(
 		2,
 		'Book Drive',
 		'Collect and sort books for local schools.',
 		'City Library',
-		'2024-07-12'
+		'2026-07-12'
 	),
 	(
 		2,
 		'Art Class Assistant',
 		'Help children with painting projects.',
 		'Arts Council Bldg',
-		'2024-07-15'
+		'2026-07-15'
 	),
 	(
 		2,
 		'After-school Snack Prep',
 		'Prepare healthy snacks for students.',
 		'Elementary School',
-		'2024-07-18'
+		'2026-07-18'
 	);
 
 INSERT INTO
@@ -150,35 +150,35 @@ VALUES
 		'Animal Shelter Feeding',
 		'Help feed and walk rescue dogs.',
 		'Happy Paws Shelter',
-		'2024-08-01'
+		'2026-08-01'
 	),
 	(
 		3,
 		'Cat Room Socialization',
 		'Spend time playing with rescue cats.',
 		'Happy Paws Shelter',
-		'2024-08-03'
+		'2026-08-03'
 	),
 	(
 		3,
 		'Shelter Painting',
 		'Paint the lobby and intake rooms.',
 		'Happy Paws Shelter',
-		'2024-08-10'
+		'2026-08-10'
 	),
 	(
 		3,
 		'Adoption Event Help',
 		'Assist families meeting potential pets.',
 		'Local Pet Store',
-		'2024-08-15'
+		'2026-08-15'
 	),
 	(
 		3,
 		'Kennel Cleaning',
 		'Deep clean the outdoor kennel areas.',
 		'Happy Paws Shelter',
-		'2024-08-20'
+		'2026-08-20'
 	);
 
 SELECT
