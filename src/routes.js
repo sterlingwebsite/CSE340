@@ -39,6 +39,7 @@ import {
   requireLogin,
   showDashboard,
   requireRole,
+  showUsersPage,
 } from "./controllers/users.js";
 import { testErrorPage } from "./controllers/errors.js";
 
@@ -48,6 +49,9 @@ router.get("/", showHomePage);
 router.get("/organizations", showOrganizationsPage);
 router.get("/projects", showProjectsPage);
 router.get("/categories", showCategoriesPage);
+
+// Restricted route to users page
+router.get("/users", requireRole("admin"), showUsersPage);
 
 // Protected dashboard route
 router.get("/dashboard", requireLogin, showDashboard);

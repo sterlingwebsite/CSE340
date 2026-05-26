@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { createUser, authenticateUser } from "../models/users.js";
+import { createUser, authenticateUser, getAllUsers } from "../models/users.js";
 
 const showUserRegistrationForm = (req, res) => {
   res.render("register", { title: "Register" });
@@ -82,6 +82,7 @@ const showDashboard = (req, res) => {
     title: "Dashboard",
     name: user.name,
     email: user.email,
+    role: user.role_name,
   });
 };
 
@@ -111,6 +112,21 @@ const requireRole = (role) => {
   };
 };
 
+const showUsersPage = async (req, res) => {
+  try {
+    const users = await getAllUsers();
+
+    res.render("users", {
+      title: "All Users",
+      users,
+    });
+  } catch (error) {
+    console.error("Error loading users page:", error);
+    req.flash("error", "Unable to load users at this time.");
+    res.redirect("/dashboard");
+  }
+};
+
 export {
   showUserRegistrationForm,
   processUserRegistrationForm,
@@ -120,4 +136,5 @@ export {
   requireLogin,
   showDashboard,
   requireRole,
+  showUsersPage,
 };
