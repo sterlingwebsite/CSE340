@@ -13,9 +13,11 @@
         </li>
       <% }); %>
 
-      <li>
-      <a href="/new-category">Create a new category</a>
-    </li>
+      <% if (user && user.role_name === 'admin') { %>
+        <li>
+          <a href="/new-category">Create a new category</a>
+        </li>
+      <% } %>
     </ul>
   </section>
 </main>
