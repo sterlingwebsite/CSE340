@@ -30,6 +30,10 @@ import {
   showEditCategoryForm,
   processEditCategoryForm,
 } from "./controllers/categories.js";
+import {
+  showUserRegistrationForm,
+  processUserRegistrationForm,
+} from "./controllers/users.js";
 import { testErrorPage } from "./controllers/errors.js";
 
 const router = express.Router();
@@ -38,6 +42,10 @@ router.get("/", showHomePage);
 router.get("/organizations", showOrganizationsPage);
 router.get("/projects", showProjectsPage);
 router.get("/categories", showCategoriesPage);
+
+// User registration routes
+router.get("/register", showUserRegistrationForm);
+router.post("/register", processUserRegistrationForm);
 
 // Routes to create a new category
 router.get("/new-category", showNewCategoryForm);
