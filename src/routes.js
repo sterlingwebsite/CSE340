@@ -33,6 +33,9 @@ import {
 import {
   showUserRegistrationForm,
   processUserRegistrationForm,
+  showLoginForm,
+  processLoginForm,
+  processLogout,
 } from "./controllers/users.js";
 import { testErrorPage } from "./controllers/errors.js";
 
@@ -42,6 +45,11 @@ router.get("/", showHomePage);
 router.get("/organizations", showOrganizationsPage);
 router.get("/projects", showProjectsPage);
 router.get("/categories", showCategoriesPage);
+
+// User login routes
+router.get('/login', showLoginForm);
+router.post('/login', processLoginForm);
+router.get('/logout', processLogout);
 
 // User registration routes
 router.get("/register", showUserRegistrationForm);
