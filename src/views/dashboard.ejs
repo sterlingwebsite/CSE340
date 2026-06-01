@@ -9,6 +9,34 @@
   <% if (role === 'admin') { %>
     <p><a href="/users">View All Users</a></p>
   <% } %>
+
+  <section class="dashboard-volunteering">
+    <h2>Your Volunteered Service Projects</h2>
+    <% if (volunteeredProjects && volunteeredProjects.length > 0) { %>
+      <ul class="volunteer-cards">
+        <% volunteeredProjects.forEach(project => { %>
+          <li>
+            <div class="project-info">
+              <strong>
+                <a href="/project/<%= project.project_id %>">
+                <%= project.title %></a>
+              </strong>
+              <em><%= project.organization_name %></em>
+              <span class="project-date">
+                <strong>Date:</strong> <%= project.project_date.toDateString() %>
+              </span>
+            </div>
+            <form 
+              action="/project/<%= project.project_id %>/removeVolunteer" 
+              method="POST" class="removeVolunteerBtn"
+            >
+              <button type="submit" class="btn-danger">Remove Volunteer</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+  </section>
 </main>
 
 <%- include('partials/footer') %>

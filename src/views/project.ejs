@@ -46,6 +46,20 @@
       </li>
     <% } %>
   </ul>
+
+  <% if (user) { %>
+    <% if (isVolunteering) { %>
+      <form action="/project/<%= project.project_id %>/removeVolunteer" method="POST">
+        <button type="submit" class="btn-danger">Remove Volunteer</button>
+      </form>
+    <% } else { %>
+      <form action="/project/<%= project.project_id %>/volunteer" method="POST">
+        <button type="submit" class="btn-primary">Volunteer</button>
+      </form>
+    <% } %>
+  <% } else { %>
+    <p class="login-suggestion"><a href="/login">Log in</a> to volunteer for this project.</p>
+  <% } %>
 </main>
 
 <%- include('partials/footer') %>

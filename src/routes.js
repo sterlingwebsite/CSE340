@@ -41,6 +41,10 @@ import {
   requireRole,
   showUsersPage,
 } from "./controllers/users.js";
+import {
+  volunteerForProject,
+  removeVolunteerFromProject,
+} from "./controllers/volunteers.js";
 import { testErrorPage } from "./controllers/errors.js";
 
 const router = express.Router();
@@ -49,6 +53,11 @@ router.get("/", showHomePage);
 router.get("/organizations", showOrganizationsPage);
 router.get("/projects", showProjectsPage);
 router.get("/categories", showCategoriesPage);
+
+// Volunteer tracking
+router.post("/project/:id/volunteer", requireLogin, volunteerForProject);
+router.post("/project/:id/removeVolunteer", requireLogin, removeVolunteerFromProject);
+
 
 // Restricted route to users page
 router.get("/users", requireRole("admin"), showUsersPage);
